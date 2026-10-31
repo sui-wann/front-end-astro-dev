@@ -1,51 +1,23 @@
-# Astro Starter Kit: Minimal
+# 自学Astro中
 
-```sh
-npm create astro@latest -- --template minimal
+自学coding啊，了解了一点点基本语法之后，就应该找一个开源项目，fork下来之后自己拆解玩弄，然后给他来个翻新
+
+## package.json
+
+这个文件很神奇，运行下述指令时，npm会递归找这个文件，然后根据该文件里面的"dependenciecs"内容递归下载astro模块
+
+```powershell
+npm install astro@latest
 ```
 
-<!-- ASTRO:REMOVE:START -->
+## .astro
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/minimal)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/minimal)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/minimal/devcontainer.json)
+该目录为`npm run dev`的结果存放目录，区别于`npm run build`的结果存放在`dist\`目录
 
-<!-- ASTRO:REMOVE:END -->
+## `<title><title />`
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+很无语模板文件里面竟然有错误的闭合标签格式。正确写法是`<title></title>`
 
-## 🚀 Project Structure
+## 在浏览器打开页面时底部的开发者工具是哪里来的？
 
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
-
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
-
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+众所周知`npm run ${your command}`会在`package.json`文件里面的`scripts`字段寻找指令名，但是这些指令是在哪里实现的呢？
